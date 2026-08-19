@@ -1,0 +1,110 @@
+.sidenav {
+    background: transparent;
+    color: var(--text);
+    display: flex;
+    height: 100%;
+    min-height: 0;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+.sidenav-header {
+    margin: 18px 8px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    gap: 12px;
+    color: var(--text);
+    height: 50px;
+    flex-shrink: 0;
+}
+
+.sidenav-header > div:last-child {
+    line-height: 1.7;
+}
+
+.sidenav-header span {
+    color: var(--text);
+}
+
+.sidenav-body {
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0 5px;
+}
+
+.sidenav-body,
+.sidenav-footer {
+    background: transparent;
+}
+
+.sidenav-header-text {
+    background-color: rgba(141, 21, 2, 0.815); 
+    color: white; 
+    height: 46px; 
+    width: 46px;
+    font-size: 20px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+.sidenav-footer{
+    text-align: center;
+    margin-top: auto;
+}
+
+.footer-button {
+    background-color: rgba(255, 44, 11, 0.904);
+    border-radius: 15px;
+    margin: 10px 5px;
+    color: #ffffff;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+}
+
+.navLink {
+    margin: 10px 0;
+    border-radius: 10px;
+}
+
+.hide-text{
+    opacity: 0;
+    visibility: hidden;
+}
+
+.hide-header-text {
+    opacity: 0;
+    width: 0;
+}
+
+.hide-logo-text {
+    width: 58px;
+}
+
+.toggle-footer{
+    .footer-button {
+        padding: 0;
+        gap: 0;
+    }
+    .button-add {
+        height: 46px;
+        width: 46px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0;
+    }
+
+    .button-text {
+        opacity: 0;
+        width: 0;
+    }
+}

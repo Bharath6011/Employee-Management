@@ -1,0 +1,36 @@
+<div class="sidenav">
+    <div class="sidenav-header" [class.hide-logo-text]="sidenavCollapsed()">
+        <div class="sidenav-header-text">
+            EM
+        </div>
+        <div [class.hide-header-text]="sidenavCollapsed()">
+            <div>
+                <span>Employee Management</span>
+            </div>
+            <div>
+                <span><b>Team workSpace</b></span>
+            </div>
+        </div>
+    </div>
+    <div class="sidenav-body">
+        <mat-nav-list>
+            @for(menuItem of menuItemList(); track $index) {
+            <a mat-list-item class="navLink"
+            [routerLink]="menuItem.route" 
+        routerLinkActive
+        #rla="routerLinkActive"
+        [activated]="rla.isActive"
+            >
+                    <mat-icon matListItemIcon >{{menuItem.icon}}</mat-icon>
+                    <span matListItemTitle [class.hide-text]="sidenavCollapsed()">{{menuItem.label}}</span>
+            </a>
+        }
+        </mat-nav-list>
+    </div>
+    <div class="sidenav-footer" [class.toggle-footer]="sidenavCollapsed()">
+        <button class="btn btn-lg footer-button">
+            <mat-icon class="button-add">add_circle</mat-icon>
+            <span class="button-text">Create Entry</span>
+        </button>
+    </div>
+</div>

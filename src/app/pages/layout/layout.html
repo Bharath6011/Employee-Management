@@ -1,1 +1,43 @@
-<p>layout works!</p>
+<div class="sidenavContainer">
+    <mat-sidenav-container class="sidenav-layout-container">
+        <mat-sidenav class="sidenavbar-layout"  [style.width]="sidenavWidth()" opened mode="side">
+            <app-sidenav [collapsed]="collapsed()"></app-sidenav>
+        </mat-sidenav>
+
+        <mat-sidenav-content class="main-content-panel" [style.margin-left]="sidenavWidth()">
+            <mat-toolbar class="navbar">
+                <div class="toolbar-layout">
+                    <div>
+                        <button mat-icon-button (click)="toggleButton()" aria-label="Toggle menu">
+                            <mat-icon>menu</mat-icon>
+                        </button>
+                    </div>
+                    <div class="toolbar-button">
+                            <div class="toolbar-buttonText">
+                                <div class="loggedUserText" >
+                                    {{nameIcon}}
+                                </div>
+                                <div>
+                                    <div>
+                                        <span>{{loggedUserData.employeeName}}</span>
+                                    </div>
+                                    <div>
+                                        <span>{{loggedUserData.role}}</span>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            <div>
+                                <button class="btn text-primary" (click)="onLogOff()">Logoff</button>
+                            </div>
+                    </div>
+                </div>
+
+            </mat-toolbar>
+
+            <div class="main-content">
+                <router-outlet></router-outlet>
+            </div>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+</div>

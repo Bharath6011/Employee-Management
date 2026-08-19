@@ -1,1 +1,45 @@
-<p>login works!</p>
+<div class="login-container">
+    <div class="login-card">
+        <div class="login-header">
+            <mat-icon class="login-header-icon" style="background-color:blue ;color: white;">work</mat-icon>
+            <span>Employee Management</span>
+        </div>
+        
+        <h3 class="text-primary text-center">Login</h3>
+        <form action="" [formGroup]="loginObj">
+            <div class="row">
+                <div class="mb-3">
+                    <label for="username"class="form-label">Username</label>
+                    <input type="text" formControlName="userName" placeholder="Enter Username" id="username" class="form-control">
+                    @if(loginObj.controls['userName'].touched) {
+                        <div>
+                            @if(loginObj.controls['userName'].errors?.['required']) {
+                                <span class="text-danger">This field is required</span>
+                            }
+                            @if(loginObj.controls['userName'].errors?.['email']) {
+                                <span class="text-danger">Enter a Valid Email address</span>
+                            }
+                        </div>
+                    }
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="text" formControlName="password" placeholder="Enter Password" id="password" class="form-control">
+                    @if(loginObj.controls['password'].touched) {
+                        <div>
+                            @if(loginObj.controls['password'].errors?.['required']) {
+                                <span class="text-danger">This field is required</span>
+                            }
+                            @if(loginObj.controls['password'].errors?.['minlength']) {
+                                <span class="text-danger">Password should at least 5 characters</span>
+                            }
+                        </div>
+                    }
+                </div>
+            </div>
+            <div class="d-grid">
+                <button type="button" class="btn btn-primary" (click)="login()">Login</button>
+            </div>
+        </form>
+    </div>
+</div>

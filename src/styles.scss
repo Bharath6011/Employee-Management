@@ -9,31 +9,56 @@
 html {
   @include mat.theme((
     color: (
-      primary: mat.$azure-palette,
-      tertiary: mat.$blue-palette,
+      primary: mat.$green-palette,
+      tertiary: mat.$cyan-palette,
     ),
     typography: Roboto,
     density: 0,
   ));
 }
 
+:root {
+  --app-bg: #FAFAFA;
+  --surface: #FFFFFF;
+  --surface-alt: #EEF1F0;
+  --surface-strong: #F7F9F8;
+  --panel: rgba(255, 255, 255, 0.9);
+  --panel-strong: #F2F5F4;
+  --primary-action: #0F6E5F;
+  --primary-accent: #2F8F7A;
+  --primary-soft: #E3F1EE;
+  --secondary: #A7C7C0;
+  --secondary-soft: #EDF5F3;
+  --success: #2E8B57;
+  --warning: #B8860B;
+  --error: #C0392B;
+  --text: #14181B;
+  --muted: #5C6770;
+  --border: #E7ECEB;
+  --shadow: 0 16px 32px rgba(18, 42, 37, 0.08);
+}
+
 body {
-  // Default the application to a light color theme. This can be changed to
-  // `dark` to enable the dark color theme, or to `light dark` to defer to the
-  // user's system settings.
   color-scheme: light;
-
-  // Set a default background, font and text colors for the application using
-  // Angular Material's system-level CSS variables. Learn more about these
-  // variables at https://material.angular.dev/guide/system-variables
-  background-color: var(--mat-sys-surface);
-  color: var(--mat-sys-on-surface);
+  background: var(--app-bg);
+  color: var(--text);
   font: var(--mat-sys-body-medium);
-
-  // Reset the user agent margin.
   margin: 0;
 }
-/* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html, body {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
+body {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+button,
+.mat-mdc-button,
+.mat-icon-button {
+  font-family: inherit;
+}
+
