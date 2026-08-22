@@ -1,4 +1,8 @@
-.page-header {
+.card {
+    height: 100%;
+}
+
+.card-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -6,6 +10,40 @@
     height: 64px;
     width: 100%;
     background-color: #ffffff;
-    margin: 0 10px;
-    border-radius: 20px;
+    padding: 0px 20px;
+}
+
+.card-body {
+    height: calc(100vh - 224px);
+}
+
+.table-layout {
+    height: 100%;
+}
+
+tbody {
+    tr {
+        th {
+            font-weight: 500;
+        }
+    }
+}
+
+.table thead th {
+    position: sticky;
+    top: -1px;               /* Slightly offset to completely overlap the top border gap */
+    background-color: antiquewhite !important; /* !important overrides Bootstrap's defaults */
+    z-index: 10;             /* Higher z-index ensures it stays on top of body cells */
+    
+    /* FIX: Force the background to cover the microscopic border edges */
+    background-clip: padding-box; 
+}
+
+
+thead {
+    tr {
+        th {
+            background-color: antiquewhite;
+        }
+    }
 }

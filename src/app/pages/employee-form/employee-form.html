@@ -1,1 +1,139 @@
-<p>employee-form works!</p>
+<div class="dialog">
+    <div class="dialog-header">
+        <span>Employee form</span>
+        <h3>Add or update team member</h3>
+    </div>
+
+    <div class="dialog-body">
+        <form action="" [formGroup]="employeeForm">
+            <div class="row">
+                <div class="col-6 mb-3">
+                    <label for="" class="form-label">Employee Name</label>
+                    <input type="text" placeholder="Enter full name" formControlName="employeeName"
+                        class="form-control">
+                    @if(employeeForm.controls['employeeName'].touched) {
+                    <div>
+                        @if(employeeForm.controls['employeeName'].errors?.['required']) {
+                        <span class="text-danger">This field is required</span>
+                        }
+                    </div>
+                    }
+                </div>
+                <div class="col-6 mb-3">
+                    <label for="" class="form-label">Contact number</label>
+                    <input type="text" placeholder="Enter contact number" formControlName="contactNo"
+                        class="form-control">
+                    @if(employeeForm.controls['contactNo'].touched) {
+                    <div>
+                        @if(employeeForm.controls['contactNo'].errors?.['required']) {
+                        <span class="text-danger">This field is required</span>
+                        }
+                    </div>
+                    }
+                </div>
+                <div class="col-6 mb-3">
+                    <label for="" class="form-label">Email address</label>
+                    <input type="text" placeholder="Enter email address" formControlName="emailId" class="form-control">
+                    @if(employeeForm.controls['emailId'].touched) {
+                    <div>
+                        @if(employeeForm.controls['emailId'].errors?.['required']) {
+                        <span class="text-danger">This field is required</span>
+                        }
+                    </div>
+                    }
+                </div>
+                <div class="col-6 mb-3">
+                    <label for="" class="form-label">Password</label>
+                    <input type="text" placeholder="Enter password" formControlName="password" class="form-control">
+                    @if(employeeForm.controls['password'].touched) {
+                    <div>
+                        @if(employeeForm.controls['password'].errors?.['required']) {
+                        <span class="text-danger">This field is required</span>
+                        }
+                    </div>
+                    }
+                </div>
+                <div class="col-6 mb-3">
+                    <label for="" class="form-label">Department (parent)</label>
+                    <select name="" id="" (change)="onChangeParent($event)" class="form-select">
+                        <option value="" selected>Choose parent department</option>
+                        @for(dept of parentDepartmentList(); track $index) {
+                        <option [value]="dept.departmentId">{{dept.departmentName}}</option>
+                        }
+
+                    </select>
+                    @if(employeeForm.controls['employeeName'].touched) {
+                    <div>
+                        @if(employeeForm.controls['employeeName'].errors?.['required']) {
+                        <span class="text-danger">This field is required</span>
+                        }
+                    </div>
+                    }
+                </div>
+                <div class="col-6 mb-3">
+                    <label for="" class="form-label">Department (child)</label>
+                    <select name="" id="" formControlName="deptId" class="form-select">
+                        <option value="" selected>Choose parent department</option>
+                        @for(childDept of childDepartmentList(); track $index) {
+                        <option [ngValue]="childDept.childDeptId">{{childDept.departmentName}}</option>
+                        }
+                    </select>
+                    @if(employeeForm.controls['deptId'].touched) {
+                    <div>
+                        @if(employeeForm.controls['deptId'].errors?.['required']) {
+                        <span class="text-danger">This field is required</span>
+                        }
+                    </div>
+                    }
+                </div>
+                <div class="col-6 mb-3">
+                    <label for="" class="form-label">Gender</label>
+                    <select name="" formControlName="gender" id="" class="form-select">
+                        <option value="" selected>Choose gender</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="other">Other</option>
+                    </select>
+                    @if(employeeForm.controls['gender'].touched) {
+                    <div>
+                        @if(employeeForm.controls['gender'].errors?.['required']) {
+                        <span class="text-danger">This field is required</span>
+                        }
+                    </div>
+                    }
+                </div>
+                <div class="col-6 mb-3">
+                    <label for="" class="form-label">Role</label>
+                    <input type="text" formControlName="role" name="" id="" class="form-control"
+                        placeholder="e.g. Operations lead" class="form-control">
+                    @if(employeeForm.controls['role'].touched) {
+                    <div>
+                        @if(employeeForm.controls['role'].errors?.['required']) {
+                        <span class="text-danger">This field is required</span>
+                        }
+                    </div>
+                    }
+                </div>
+            </div>
+        </form>
+
+    </div>
+
+    <div class="dialog-footer">
+        <div class="row">
+            @if(currentEmpId != 0) {
+                <div class="col-6">
+                <button class="btn btn-success" (click)="onUpdate()">Update</button>
+            </div>
+            } @else {
+                <div class="col-6">
+                <button class="btn btn-primary" (click)="onSave()">Save</button>
+            </div>
+            }
+            
+            <div class="col-6">
+                <button class="btn btn-warning" (click)="onClose()">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

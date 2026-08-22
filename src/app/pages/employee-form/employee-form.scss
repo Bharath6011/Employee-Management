@@ -1,0 +1,25 @@
+.dialog {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.dialog-header {
+    background-color: lightgrey;
+    color: black;
+    // display: flex;
+    // justify-content: center;
+    // flex-direction: column;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.dialog-body {
+    padding: 20px;
+    height: 390px;
+
+}
+
+.dialog-footer {
+    text-align: center;
+}

@@ -1,11 +1,46 @@
-<div class="row" class="layout">
-    <div class="page-header">
-            <div>
-                <span>Employees</span>
-                <h3>Manage your team</h3>
-            </div>
+<div class="card">
+    <div class="card-header">
         <div>
-            <button class="btn text-center" style="background-color: rgba(141, 21, 2, 0.815);;">Add Employee</button>
+            <span>Employees</span>
+            <h4>Manage your team</h4>
+        </div>
+        <div>
+            <button class="btn text-center" style="background-color: rgba(141, 21, 2, 0.815); color: white;"
+                routerLink="/admin/new-employee/0">Add Employee</button>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive table-layout">
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Department ID</th>
+                    <th>Role</th>
+                    <th>Email Id</th>
+                    <th>Contact No.</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for(employee of employeeList$ | async; track $index) {
+                <tr>
+                    <th>{{$index+1}}</th>
+                    <th>{{employee.employeeName}}</th>
+                    <th>{{employee.deptId}}</th>
+                    <th>{{employee.role}}</th>
+                    <th>{{employee.emailId}}</th>
+                    <th>{{employee.contactNo}}</th>
+                    <th >
+                        <button class="btn btn-primary mx-3" routerLink="/admin/new-employee/{{employee.employeeId}}">Edit</button>
+                        <button class="btn btn-danger">Delete</button>
+                    </th>
+                </tr>
+                }
+
+            </tbody>
+            </table>
         </div>
     </div>
 </div>

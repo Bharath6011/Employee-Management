@@ -1,11 +1,27 @@
-import { Component } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { EmployeeForm } from '../employee-form/employee-form';
+import { Employee } from '../../core/services/employee';
+import { EmployeeModel } from '../../core/model/classes/Employee.model';
+import { RouterLink } from '@angular/router';
+import { Observable } from 'rxjs';
+import { AsyncPipe } from '@angular/common';
 
 @Component({
   selector: 'app-employee-list',
-  imports: [],
+  imports: [RouterLink,AsyncPipe],
   templateUrl: './employee-list.html',
   styleUrl: './employee-list.scss',
 })
 export class EmployeeList {
 
+  employeeService = inject(Employee);
+
+  employeeList$: Observable<EmployeeModel[]> = new Observable<EmployeeModel[]>;
+
+  constructor() {
+    this.employeeList$ = this.employeeService.getAllEmployees();
+  }
+
 }
+ 

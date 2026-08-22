@@ -37,7 +37,7 @@ export class Sidenav {
     {
       label: 'Projects',
       icon: 'folder',
-      route: 'projects'
+      route: 'project-list'
     },
     {
       label: 'Assignments',

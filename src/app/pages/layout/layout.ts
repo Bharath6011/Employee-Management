@@ -7,11 +7,12 @@ import { Router, RouterOutlet } from '@angular/router';
 import { Sidenav } from '../sidenav/sidenav';
 import { Iuser } from '../../core/model/interfaces/user.model';
 import { GlobalConstant } from '../../core/globalConstant/Global.constant';
+import { UpperCasePipe } from '@angular/common';
 
 @Component({
   selector: 'app-layout',
   imports: [MatToolbar,MatIconModule,MatButtonModule,
-    MatSidenav,MatSidenavContainer,MatSidenavContent,RouterOutlet,Sidenav],
+    MatSidenav,MatSidenavContainer,MatSidenavContent,RouterOutlet,Sidenav,UpperCasePipe],
   templateUrl: './layout.html',
   styleUrl: './layout.scss',
 })
