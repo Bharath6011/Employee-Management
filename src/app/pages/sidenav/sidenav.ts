@@ -38,16 +38,6 @@ export class Sidenav {
       label: 'Projects',
       icon: 'folder',
       route: 'project-list'
-    },
-    {
-      label: 'Assignments',
-      icon: 'assignment',
-      route: 'assignments'
-    },
-    {
-      label: 'Reports',
-      icon: 'article',
-      route: 'reports'
     }
   ])
 

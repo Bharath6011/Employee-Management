@@ -62,3 +62,13 @@ button,
   font-family: inherit;
 }
 
+.project-assignment-dialog {
+  .mat-mdc-dialog-container {
+    --mdc-dialog-container-color: #f8fbfa;
+    --mdc-dialog-container-shape: 16px;
+    --mdc-dialog-container-elevation-shadow: 0 20px 45px rgba(18, 42, 37, 0.2);
+    overflow: hidden;
+    padding: 0;
+  }
+}
+

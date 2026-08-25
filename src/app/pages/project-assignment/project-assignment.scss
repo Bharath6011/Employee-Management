@@ -1,0 +1,136 @@
+.dialog {
+    background-color: #f8fbfa;
+    color: #19332e;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: 0;
+    padding: 24px;
+    box-sizing: border-box;
+}
+
+.dialog-header {
+    border-left: 4px solid #0f6e5f;
+    padding-left: 12px;
+
+    h6 {
+        color: #0f6e5f;
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        margin-bottom: 6px;
+    }
+
+    h3 {
+        font-size: 1.35rem;
+        margin: 0;
+    }
+}
+
+.dialog-body {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    min-height: 0;
+    overflow: hidden;
+}
+
+.dialog-body > form {
+    flex: 0 0 auto;
+}
+
+.assignment-table {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    min-height: 0;
+}
+
+.table-responsive {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    min-height: 0;
+    overflow: hidden;
+}
+
+.table-header {
+    background-color: #e3f1ee;
+    border: 1px solid #c9e1dc;
+    border-radius: 8px 8px 0 0;
+    padding: 12px 14px;
+
+    h6,
+    h4 {
+        margin: 0;
+    }
+
+    h6 {
+        color: #0f6e5f;
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+    }
+
+    h4 {
+        font-size: 1rem;
+        margin-top: 4px;
+    }
+}
+
+.table-body {
+    border: 1px solid #c9e1dc;
+    border-top: 0;
+    flex: 1;
+    min-height: 0;
+    overflow: auto;
+}
+
+.table {
+    margin-bottom: 0;
+    min-width: 100%;
+    width: 100%;
+
+    th {
+        background-color: #f0f6f4;
+        color: #31544d;
+        font-size: 0.76rem;
+        white-space: nowrap;
+    }
+
+    td {
+        background-color: #ffffff;
+        vertical-align: middle;
+        white-space: nowrap;
+    }
+}
+
+.dialog-footer {
+    border-top: 1px solid #dce9e6;
+    padding-top: 16px;
+}
+
+.toggle-icon {
+    height: 30px;
+    width: 56px;
+}
+
+.switch-layout {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.switch-layout-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: 12px;
+    padding-top: 20px;
+
+    label {
+        font-size: 1.3rem;
+    }
+}

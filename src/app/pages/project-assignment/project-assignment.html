@@ -1,1 +1,92 @@
-<p>project-assignment works!</p>
+<div class="dialog">
+    <div class="dialog-header mb-3">
+        <h6>PROJECT ASSIGNMENT</h6>
+        <h3>Project employees</h3>
+    </div>
+    <hr>
+    <div class="dialog-body mt-4">
+        <form action="" mb-3>
+            <div class="row">
+                <div class="col-3 mb-3">
+                    <label for="" class="form-label">Employee</label>
+                    <select name="empId" id="" [(ngModel)]="projectAssignObj.empId" class="form-select">
+                        <option value="">Select Employee</option>
+                        @for(name of employeeList();track $index) {
+                            <option [ngValue]="name.employeeId">{{name.employeeName}}</option>
+                        }
+                        
+                    </select>
+                </div>
+                <div class="col-3 mb-3">
+                    <label for="" class="form-label">Assigned date</label>
+                    <input type="date" [(ngModel)]="projectAssignObj.assignedDate" name="assignedDate" class="form-control" placeholder="Enter Start Date">
+                </div>
+                <div class="col-3 mb-3">
+                    <label for="" class="form-label">Role</label>
+                    <input type="text" name="role" [(ngModel)]="projectAssignObj.role" class="form-control" placeholder="Enter Role">
+                </div>
+                <div class="col-3 mb-3 switch-layout">
+                    <div class="form-check form-switch switch-layout-icon assignment-switch">
+                        <input class="form-check-input toggle-icon" id="isActive" [(ngModel)]="projectAssignObj.isActive"
+                            name="isActive" type="checkbox" role="switch" checked>
+                        <label class="form-check-label" for="isActive">Active</label>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="d-grid">
+                    <button class="btn" style="background-color: #bd2828ad;" (click)="assignEmp()">Add Employee</button>
+                </div>
+            </div>
+        </form>
+        <hr>
+
+        <div class="assignment-table mt-3">
+            <div class="table-responsive">
+                <div class="table-header">
+                    <div>
+                        <h6>CURRENT TEAM</h6>
+                        <h4>Assigned employees</h4>
+                    </div>
+                </div>
+                <div class="table-body">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Employee</th>
+                                <th>Role</th>
+                                <th>Assigned Date</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @for(employee of currentProjectEmployeesList();track $index) {
+                                <tr>
+                                <td>{{employee.employeeName}}</td>
+                                <td>{{employee.role}}</td>
+                                <td>{{employee.assignedDate | date: 'dd-MMM-yy'}}</td>
+                                <td>{{employee.isActive ? 'Active' : 'Inactive'}}</td>
+                                <td>
+                                    <button class="btn btn-sm">Remove</button>
+                                </td>
+                            </tr>
+                            } @empty {
+                                <tr>
+                                    <td colspan="5">No Employee Assigned Yet</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="dialog-footer text-end">
+        <div>
+            <button class="mx-3 btn btn-warning" (click)="onCancel()">Close</button>
+            <button class="btn btn-success" (click)="onCreate()">Save</button>
+        </div>
+    </div>
+</div>

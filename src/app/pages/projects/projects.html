@@ -1,22 +1,145 @@
-<div class="container-fluid">
-    <form action="">
-        <div class="row">
-            <div class="col-6 mb-3">
-                <label for="" class="form-label"></label>
-                <input type="text" class="form-control" placeholder="">
-            </div>
-            <div class="col-6 mb-3">
-                <label for="" class="form-label"></label>
-                <input type="text" class="form-control" placeholder="">
-            </div>
-            <div class="col-6 mb-3">
-                <label for="" class="form-label"></label>
-                <input type="text" class="form-control" placeholder="">
-            </div>
-            <div class="col-6 mb-3">
-                <label for="" class="form-label"></label>
-                <input type="text" class="form-control" placeholder="">
-            </div>
+<div class="project">
+    <div class="project-header">
+        <div class="project-header-text">
+            <span>PROJECT WORKSPACE</span>
+            <h5>Manage Projects</h5>
+            <span>Keep delivery details, ownership, and client contacts in one place</span>
         </div>
-    </form>
+        <div class="project-header-button">
+            <button class="btn text-center " style="background-color: rgba(141, 21, 2, 0.815); color: white;"
+                type="button" (click)="showProjectForm()">Add Project</button>
+        </div>
+    </div>
+    <div class="project-body">
+        <div class="row project-layout-row">
+            <div
+                [class]="isProjectFormVisible() ? 'col-12 col-lg-8 project-list-layout' : 'col-12 project-list-layout'">
+                <div class="project-list-header">
+                    <div>
+                        <span>ACTIVE PORTFOLIO</span>
+                        <h6>Your projects</h6>
+                    </div>
+                    <div>
+                        <span>{{projectsNumber}} projects</span>
+                    </div>
+                </div>
+                <div class="project-list-body" style="padding: 10px;">
+                    <div class="row">
+                        @for(project of projectList(); track $index) {
+                            <div [ngClass]="isProjectFormVisible() ? 'col-12 col-md-6 mb-3' : 'col-12 col-md-4 mb-3'">
+                            <div class="card">
+                                <div class="card-header">
+                                    <div
+                                        class="project-header-details d-flex flex-direction-row justify-content-between">
+                                        <span>{{project.projectId}}</span>
+                                        <button class="btn btn-sm">{{project.startDate | date: 'dd-MMM-yyyy'}}</button>
+                                    </div>
+                                    <div class="project-header-text">
+                                        <h3>{{project.projectName}}</h3>
+                                        <span>{{project.clientName}}</span>
+                                    </div>
+                                </div>
+                                <div class="card-body project-body-text">
+                                    <div class="row">
+                                        <div class="col-3">
+                                            <span>LEAD</span>
+                                        </div>
+                                        <div class="col-9">
+                                            <h4>Employee #{{project.leadByEmpId}}</h4>
+                                        </div>  
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="row">
+                                        <div class="col-5">
+                                            <span>Contact EmailId</span>
+                                        </div>
+                                        <div class="col-7">
+                                            <a routerLink="maya@northstarlabs.com">{{project.emailId}}</a>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="card-footer-buttons">
+                                        <div >
+                                            <button class="btn btn-sm btn-primary" (click)="openDialog(project.projectId)">Employees...</button>
+                                        </div>
+                                        <div >
+                                            <button class="btn btn-sm btn-warning"
+                                                style="background-color: rgba(141, 21, 2, 0.815); color: #ffffff;margin-right: 5px;">Edit</button>
+                                        </div>
+                                        <div >
+                                            <button class="btn btn-sm btn-danger "
+                                                style="background-color: rgb(232, 139, 109);">Delete</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        }
+                    </div>
+                </div>
+            </div>
+
+            @if (isProjectFormVisible()) {
+            <div class="col-12 col-lg-4 form-layout">
+                <div class="form-header">
+                    <div>
+                        <span>PROJECT DETAILS</span>
+                        <h5>Add a project</h5>
+                    </div>
+                    <div>
+                        <span>01 / 01</span>
+                    </div>
+                </div>
+                <div class="form-body mt-3" [formGroup]="projectForm">
+                    <form action="">
+                        <div class="row">
+                        <div class="col-12 col-sm-6 mb-3">
+                            <label for="projectName" class="form-label">Project name</label>
+                            <input type="text" formControlName="projectName" id="projectName" placeholder="Enter Project Name" class="form-control">
+                        </div>
+                        <div class="col-12 col-sm-6 mb-3">
+                            <label for="clientName" class="form-label">Client name</label>
+                            <input type="text" formControlName="clientName" id="clientName" placeholder="Enter Client Name" class="form-control">
+                        </div>
+                        <div class="col-12 col-sm-6 mb-3">
+                            <label for="lead" class="form-label">Project Lead</label>
+                             <select name="" formControlName="leadByEmpId" id="lead" class="form-select">
+                                <option value="">Select Employee</option>
+                                @for(emp of empList$ | async;track $index) {
+                                    <option [value]="emp.employeeId">{{emp.employeeName}}</option>
+                                }
+                             </select>
+                        </div>
+                        <div class="col-12 col-sm-6 mb-3">
+                            <label for="contactPerson" class="form-label">Contact Person</label>
+                            <input type="text" formControlName="contactPerson" id="contactPerson" placeholder="Enter Contact Person" class="form-control">
+                        </div>
+                        <div class="col-12 col-sm-6 mb-3">
+                            <label for="mobile" class="form-label">Contact</label>
+                            <input type="text" formControlName="contactNo" id="mobile" placeholder="Enter Contact No" class="form-control">
+                        </div>
+                        <div class="col-12 col-sm-6 mb-3">
+                            <label for="emailId" class="form-label">Email Id</label>
+                            <input type="text" formControlName="emailId" id="emailId" placeholder="Enter Email" class="form-control">
+                        </div>
+                        <div class="col-12 mb-3">
+                            <label for="startDate" class="form-label">Start Date</label>
+                            <input type="date" formControlName="startDate" id="startDate" placeholder="Enter Date" class="form-control">
+                        </div>
+                    </div>
+                    <div class="row text-center">
+                        <div class="col-6">
+                            <button class="btn btn-success" type="button" (click)="createProject()">Save</button>
+                        </div>
+                        <div class="col-6">
+                            <button class="btn btn-warning" (click)="closeForm()" type="reset">Close</button>
+                        </div>
+                    </div>
+                    </form>
+                </div>
+            </div>
+            }
+        </div>
+    </div>
 </div>

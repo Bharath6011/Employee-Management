@@ -5,6 +5,7 @@ import { Dashboard } from './pages/dashboard/dashboard';
 import { EmployeeList } from './pages/employee-list/employee-list';
 import { EmployeeForm } from './pages/employee-form/employee-form';
 import { Projects } from './pages/projects/projects';
+import { ProjectAssignment } from './pages/project-assignment/project-assignment';
 
 export const routes: Routes = [
     {

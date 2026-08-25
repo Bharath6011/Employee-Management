@@ -43,4 +43,24 @@ export interface IProject extends NewProjectModel {
   employeeName: string
 }
 
+export interface IAllProjectEmployees {
+  empProjectId: number
+  projectId: number
+  empId: number
+  assignedDate: string
+  role: string
+  isActive: boolean
+  projectName: string
+  employeeName: string
+}
+
+export interface IUserProjectAssign {
+  empProjectId: number
+  projectId: number
+  empId: number
+  assignedDate: string
+  role: string
+  isActive: boolean
+}
+
 

@@ -1,0 +1,145 @@
+.project {
+    padding: 20px;
+    background-color: #ffffff;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+}
+
+.project-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;
+    border: 1px solid black;
+    width: 100%;
+    background-color: antiquewhite;
+    border-radius: 20px 20px 0px 0px;
+    padding: 0px 20px;
+
+}
+
+.project-body {
+    height: calc(100vh - 274px);
+    border-radius: 0px 0px 20px 20px;
+    width: 100%;
+    background-color: rgba(244, 243, 241, 0.858);
+    padding: 20px;
+    overflow: auto;
+}
+
+.card-header {
+    padding: 10px;
+}
+
+.project-layout-row {
+    --bs-gutter-x: 0;
+    --bs-gutter-y: 0;
+    column-gap: 20px;
+    row-gap: 20px;
+    margin: 0;
+    height: 100%;
+    overflow-x: auto;
+    overflow-y: auto;
+    align-items: flex-start;
+}
+
+@media (min-width: 992px) {
+    .project-layout-row > .col-lg-8 {
+        width: calc(66.666667% - 10px);
+    }
+
+    .project-layout-row > .col-lg-4 {
+        width: calc(33.333333% - 10px);
+    }
+}
+
+.form-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    position: sticky;
+    top: 0;
+    z-index: 9;
+    border-radius: 10px 10px 0px 0px;
+    background-color: grey;
+}
+
+.form-layout {
+    background-color: #ffffff;
+    border-radius: 20px;
+    height: auto;
+}
+
+.form-body {
+    overflow: hidden;
+    padding: 10px;
+}
+
+.project-list-layout {
+    background-color: #ffffff;
+    border-radius: 20px;
+}
+
+.project-list-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    padding: 10px;
+    position: sticky;
+    top: 0;
+    z-index: 9;
+    background-color: grey;
+    border-radius: 10px 10px 0px 0px;
+}
+
+.project-header-text {
+    h3 {
+        font-size: 1rem;
+        font-weight: 600px;
+    }
+}
+
+.project-body-text {
+    text-align: right;
+    h4 {
+        font-size: 1rem;
+        font-weight: 600px;
+    }
+}
+
+.card-body{
+    padding: 10px;
+}
+
+.card-body {
+    .row {
+        div {
+            span {
+                font-size: 0.8rem;
+                font-weight: 300;
+            }
+
+            h4 {
+                font-size: 1rem;
+                font-weight: 500;
+            }
+        }
+    }
+}
+
+.card-footer {
+    padding: 10px;
+}
+
+.card-footer-buttons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}

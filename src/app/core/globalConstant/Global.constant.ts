@@ -12,7 +12,9 @@ export const GlobalConstant = {
         UPDATE_EMPLOYEE_STR: 'UpdateEmployee/',
         GET_ALL_Projects: 'GetAllProjects',
         CREATE_NEW_PROJECTS: 'CreateProject',
-        UPDATE_PROJECT: 'UpdateProject'
+        UPDATE_PROJECT: 'UpdateProject',
+        GET_ALL_PROJECT_EMPLOYEES : 'GetAllProjectEmployees',
+        CREATE_PROJECT_EMPLOYEE : 'CreateProjectEmployee'
     },
     QUESTION_MARK: '?',
     EQUALS: '=',
