@@ -28,5 +28,14 @@ export class ProjectService {
   assignProjectToEmployee(obj: IUserProjectAssign): Observable<IUserProjectAssign> {
     return this.http.post<IUserProjectAssign>(environment.API_URL + GlobalConstant.API_METHOD.CREATE_PROJECT_EMPLOYEE,obj);
   }
+
+  deleteProjectById(id:number) {
+    console.log(id);
+    return this.http.delete(environment.API_URL + GlobalConstant.API_METHOD.DELETE_PROJECT + id);
+  }
+
+  deleteEmployeeFromProject(id:number) {
+    return this.http.delete(environment.API_URL + GlobalConstant.API_METHOD.DELETE_EMPLOYEE_FROM_PROJECT + id)
+  }
   
 }

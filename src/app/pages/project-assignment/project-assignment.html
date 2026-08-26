@@ -68,7 +68,7 @@
                                 <td>{{employee.assignedDate | date: 'dd-MMM-yy'}}</td>
                                 <td>{{employee.isActive ? 'Active' : 'Inactive'}}</td>
                                 <td>
-                                    <button class="btn btn-sm">Remove</button>
+                                    <button class="btn btn-sm btn-danger" (click)="DeleteEmployeeFromProject(employee.empProjectId)">Remove</button>
                                 </td>
                             </tr>
                             } @empty {

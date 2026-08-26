@@ -26,7 +26,7 @@
                 <div class="project-list-body" style="padding: 10px;">
                     <div class="row">
                         @for(project of projectList(); track $index) {
-                            <div [ngClass]="isProjectFormVisible() ? 'col-12 col-md-6 mb-3' : 'col-12 col-md-4 mb-3'">
+                            <div [ngClass]="isProjectFormVisible() ? 'col-12 col-md-6 mb-3' : 'col-12 col-md-6 col-lg-4 mb-3'">
                             <div class="card">
                                 <div class="card-header">
                                     <div
@@ -64,12 +64,8 @@
                                             <button class="btn btn-sm btn-primary" (click)="openDialog(project.projectId)">Employees...</button>
                                         </div>
                                         <div >
-                                            <button class="btn btn-sm btn-warning"
-                                                style="background-color: rgba(141, 21, 2, 0.815); color: #ffffff;margin-right: 5px;">Edit</button>
-                                        </div>
-                                        <div >
                                             <button class="btn btn-sm btn-danger "
-                                                style="background-color: rgb(232, 139, 109);">Delete</button>
+                                                style="background-color: rgb(232, 139, 109);" (click)="onDeleteProject(project.projectId)">Delete</button>
                                         </div>
                                     </div>
                                 </div>

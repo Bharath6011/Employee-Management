@@ -31,11 +31,9 @@ tbody {
 
 .table thead th {
     position: sticky;
-    top: -1px;               /* Slightly offset to completely overlap the top border gap */
-    background-color: antiquewhite !important; /* !important overrides Bootstrap's defaults */
-    z-index: 10;             /* Higher z-index ensures it stays on top of body cells */
-    
-    /* FIX: Force the background to cover the microscopic border edges */
+    top: -1px;
+    background-color: antiquewhite !important;
+    z-index: 10;
     background-clip: padding-box; 
 }
 

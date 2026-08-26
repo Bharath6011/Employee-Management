@@ -58,15 +58,19 @@ export class Projects implements OnInit {
       data: {projectId: this.currentProjectId},
       minWidth: '700px'
     });
+  }
 
-    dialogRef.afterClosed().subscribe({
+  onDeleteProject(id:number) {
+    this.projectService.deleteProjectById(id).subscribe({
       next: (res) => {
-        console.log(res);
+        alert('Project Deleted successfully');
+        this.loadProjects();
+      },
+      error: (err) => {
+        console.log(err);
       }
     })
   }
-
-
 
   initializeForm() {
     this.projectForm = new FormGroup({

@@ -29,4 +29,8 @@ export class Employee {
     return this.http.put<EmployeeModel>(environment.API_URL + GlobalConstant.API_METHOD.UPDATE_EMPLOYEE_STR + id,obj);
   }
 
+  DeleteEmployeeById(id:number) {
+    return this.http.delete(environment.API_URL + GlobalConstant.API_METHOD.DELETE_EMPLOYEE_BY_ID + id);
+  }
+
 }

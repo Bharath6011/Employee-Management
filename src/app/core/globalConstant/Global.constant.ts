@@ -14,7 +14,10 @@ export const GlobalConstant = {
         CREATE_NEW_PROJECTS: 'CreateProject',
         UPDATE_PROJECT: 'UpdateProject',
         GET_ALL_PROJECT_EMPLOYEES : 'GetAllProjectEmployees',
-        CREATE_PROJECT_EMPLOYEE : 'CreateProjectEmployee'
+        CREATE_PROJECT_EMPLOYEE : 'CreateProjectEmployee',
+        DELETE_EMPLOYEE_BY_ID : 'DeleteEmployee/',
+        DELETE_PROJECT : 'DeleteProject/',
+        DELETE_EMPLOYEE_FROM_PROJECT : 'DeleteProjectEmployee/'
     },
     QUESTION_MARK: '?',
     EQUALS: '=',

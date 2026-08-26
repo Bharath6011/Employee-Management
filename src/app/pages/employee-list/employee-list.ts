@@ -1,6 +1,4 @@
-import { Component, inject, signal } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
-import { EmployeeForm } from '../employee-form/employee-form';
+import { Component, inject } from '@angular/core';
 import { Employee } from '../../core/services/employee';
 import { EmployeeModel } from '../../core/model/classes/Employee.model';
 import { RouterLink } from '@angular/router';
@@ -21,6 +19,18 @@ export class EmployeeList {
 
   constructor() {
     this.employeeList$ = this.employeeService.getAllEmployees();
+  }
+
+  onDelete(id:number) {
+    this.employeeService.DeleteEmployeeById(id).subscribe({
+      next: (res) => {
+        alert('Employee Deleted successfully');
+        this.employeeList$ = this.employeeService.getAllEmployees();
+      },
+      error: (err) => {
+        console.log(err);
+      }
+    })
   }
 
 }

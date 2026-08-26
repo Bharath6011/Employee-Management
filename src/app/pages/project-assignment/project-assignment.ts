@@ -47,9 +47,21 @@ export class ProjectAssignment implements OnInit {
     this.getAllProjectEmployees();
   }
 
+  DeleteEmployeeFromProject(id:number) {
+    this.projectService.deleteEmployeeFromProject(id).subscribe({
+      next: (res) => {
+        alert('Employee Removed successfully from project');
+        this.currentProjectEmployeesList.set(this.getAllProjectEmployeesList().filter(m => m.projectId === this.currentProjectId));
+        this.getAllProjectEmployees();
+      },
+      error: (err) => {
+        console.log(err);
+      }
+    })
+  }
+
   getCurrentProjectEmployees() {
     this.currentProjectEmployeesList.set(this.getAllProjectEmployeesList().filter(m => m.projectId === this.currentProjectId));
-    console.log(this.currentProjectEmployeesList());
   }
 
   onCreate() {

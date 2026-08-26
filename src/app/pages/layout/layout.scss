@@ -1,7 +1,6 @@
 :host {
     display: block;
     height: 100vh;
-    // width: 100%;
     overflow: hidden;
     background-color: #bd2828ad;
 }
@@ -14,7 +13,6 @@
 
 .sidenav-layout-container {
     height: 100%;
-    // width: 100%;
     display: flex;
     gap: 20px;
     background: transparent;
@@ -138,8 +136,8 @@ button.btn {
 }
 
 .main-content-panel > div {
-  flex: 1;             /* router-outlet area grows */
-  overflow-y: auto;    /* scroll only inside content */
+  flex: 1;
+  overflow-y: auto;
 }
 
 .main-content {
@@ -148,18 +146,18 @@ button.btn {
 
 
 mat-sidenav-container {
-  overflow-x: hidden !important; /* prevent horizontal scroll */
+  overflow-x: hidden !important;
   display: flex;
   flex-direction: row;
 }
 
 mat-sidenav-content {
-  overflow-x: hidden !important; /* stop content from pushing layout */
+  overflow-x: hidden !important;
   flex: 1;
 }
 
 .mat-drawer-inner-container {
-  overflow-x: hidden !important; /* neutralize Angular Material’s auto scroll */
+  overflow-x: hidden !important;
 }
 
 mat-sidenav-content {
