@@ -30,7 +30,6 @@ export class ProjectService {
   }
 
   deleteProjectById(id:number) {
-    console.log(id);
     return this.http.delete(environment.API_URL + GlobalConstant.API_METHOD.DELETE_PROJECT + id);
   }
 

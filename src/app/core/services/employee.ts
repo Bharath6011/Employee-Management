@@ -4,6 +4,7 @@ import { environment } from '../../../environments/environment.development';
 import { GlobalConstant } from '../globalConstant/Global.constant';
 import { EmployeeModel } from '../model/classes/Employee.model';
 import { Observable } from 'rxjs';
+import { IDashboardModel } from '../model/interfaces/user.model';
 
 @Injectable({
   providedIn: 'root',
@@ -17,8 +18,7 @@ export class Employee {
   }
 
   createNewEmployee(obj: EmployeeModel): Observable<EmployeeModel> {
-    const formValue = obj;
-    return this.http.post<EmployeeModel>(environment.API_URL+ GlobalConstant.API_METHOD.CREATE_EMPLOYEE_STR,formValue);
+    return this.http.post<EmployeeModel>(environment.API_URL+ GlobalConstant.API_METHOD.CREATE_EMPLOYEE_STR,obj);
   }
 
   getEmployeByID(id:number): Observable<EmployeeModel> {
@@ -31,6 +31,10 @@ export class Employee {
 
   DeleteEmployeeById(id:number) {
     return this.http.delete(environment.API_URL + GlobalConstant.API_METHOD.DELETE_EMPLOYEE_BY_ID + id);
+  }
+
+  getDashboard(): Observable<IDashboardModel> {
+    return this.http.get<IDashboardModel>(environment.API_URL + GlobalConstant.API_METHOD.GET_DASHBOARD);
   }
 
 }

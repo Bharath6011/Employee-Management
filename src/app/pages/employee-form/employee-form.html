@@ -73,7 +73,7 @@
                 <div class="col-6 mb-3">
                     <label for="" class="form-label">Department (child)</label>
                     <select name="" id="" formControlName="deptId" class="form-select">
-                        <option value="" selected>Choose parent department</option>
+                        <option value="" selected>Choose Child department</option>
                         @for(childDept of childDepartmentList(); track $index) {
                         <option [ngValue]="childDept.childDeptId">{{childDept.departmentName}}</option>
                         }

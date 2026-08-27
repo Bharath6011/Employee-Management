@@ -91,7 +91,6 @@ export class EmployeeForm implements OnInit {
     const formValue = this.employeeForm.value;
     this.employeeService.createNewEmployee(formValue).subscribe({
       next: (res:EmployeeModel) => {
-        debugger
         alert('New Employee Created successfully');
         this.router.navigateByUrl('admin/employee-list')
       },

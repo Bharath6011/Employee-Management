@@ -17,7 +17,6 @@ export class MasterServ {
   }
 
   getAllChildDepartmentByParentId(id: number): Observable<IApiResponseModel> {
-    console.log(id);
     return this.http.get<IApiResponseModel>(environment.API_URL + GlobalConstant.API_METHOD.CHILD_DEPARTMENT_PARENT_ID_STR + GlobalConstant.QUESTION_MARK + GlobalConstant.DEPT_ID_STR + GlobalConstant.EQUALS + `${id}`);
   }
 

@@ -1,0 +1,97 @@
+<div class="dashboard-layout">
+    <div class="dashboard-header">
+        <div class="header-text">
+            <div>
+                <span>WORKSPACE OVERVIEW</span>
+                <h3>Good morning, here is your team at a glance</h3>
+                <span>Track your people and projects from one place</span>
+            </div>
+            <div>
+                <span>Update today</span>
+            </div>
+        </div>
+    </div>
+    <div class="dashboard-body">
+        <div class="row g-4 dashboard-stats">
+            <div class="col-12 col-md-6">
+                <div class="card h-100 employee-text-header">
+                    <div class="employee-text">
+                        <div class="employee-text-icon">
+                            <h3>E</h3>
+                        </div>
+                        <div class="stat-copy">
+                            <span>Total employees</span>
+                            <h1>{{employeeCount()}}</h1>
+                            <span>People in your organization</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6">
+                <div class="card h-100 employee-text-header">
+                    <div class="employee-text">
+                        <div class="employee-text-icon">
+                            <h3>E</h3>
+                        </div>
+                        <div class="stat-copy">
+                            <span>Total Projects</span>
+                            <h1>{{projectCount()}}</h1>
+                            <span>Projects in your portfolio</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row g-4 project-body">
+            <div class="col-12 col-lg-5">
+                <div class="card dashboard-card">
+                    <div class="card-header">
+                        <div>
+                            <span>PEOPLE</span>
+                            <h3>Recent employees</h3>
+                        </div>
+                    </div>
+                    <div class="card-body dashboard-card-body">
+                        @for (employee of recentEmployees(); track $index) {
+                            <div class="list-item">
+                                <div class="list-icon">{{ getFirstLetter(employee.employeeName) }}</div>
+                                <div class="list-copy">
+                                    <strong>{{ employee.employeeName }}</strong>
+                                    <small>{{ employee.emailId }}</small>
+                                </div>
+                                <small>{{ employee.createdDate | date: 'dd MMM' }}</small>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-7">
+                <div class="card dashboard-card">
+                    <div class="card-header">
+                        <div>
+                            <span>DELIVERY</span>
+                            <h3>Recent projects</h3>
+                        </div>
+                    </div>
+                    <div class="card-body dashboard-card-body">
+                        @for(project of recentProjects(); track $index) {
+                            <div class="list-item">
+                                <div class="list-icon">{{ getFirstLetter(project.projectName) }}</div>
+                                <div class="list-copy">
+                                    <strong>{{ project.projectName }}</strong>
+                                    <small>{{ project.clientName }}</small>
+                                </div>
+                                <div class="list-date">
+                                    <small>Starts</small>
+                                    <strong>{{ project.startDate | date: 'dd MMM yyyy' }}</strong>
+                                </div>
+                            </div>
+                        }
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

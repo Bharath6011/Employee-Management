@@ -37,8 +37,6 @@ export class Projects implements OnInit {
 
   empList$: Observable<EmployeeModel[]> = new Observable<EmployeeModel[]>();
 
-  currentProjectEmployees:WritableSignal<IAllProjectEmployees[]> = signal<IAllProjectEmployees[]>([]);
-
   constructor() {
     this.initializeForm();
   }
@@ -114,19 +112,6 @@ export class Projects implements OnInit {
   showProjectForm() {
     this.isProjectFormVisible.set(true);
     this.empList$ = this.empService.getAllEmployees();
-  }
-
-  saveProject() {
-    const formValue: NewProjectModel = this.projectForm.value;
-    this.projectService.createProjects(formValue).subscribe({
-      next: (res: NewProjectModel) => {
-        alert('Project saved successfully');
-        this.loadProjects();
-      },
-      error: (err) => {
-        console.log(err);
-      }
-    })
   }
 
   resetForm() {

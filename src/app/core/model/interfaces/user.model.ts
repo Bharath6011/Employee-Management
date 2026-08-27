@@ -39,6 +39,7 @@ export interface NewProjectModel {
   emailId: string
 }
 
+
 export interface IProject extends NewProjectModel {
   employeeName: string
 }
@@ -63,4 +64,10 @@ export interface IUserProjectAssign {
   isActive: boolean
 }
 
+export interface IDashboardModel {
+  totalEmployee: number,
+  totalProject: number,
+  recentEmployee: any[],
+  recentProjects: any[]
+}
 
